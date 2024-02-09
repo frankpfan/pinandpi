@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinandpi"
+authors = [{name="FAN Pu"}]
+description = "布丰投针模拟"
+requires-python = ">=3.8"
+license = {text="MIT"}
+dependencies = [
+#    'numpy >= 1.25',
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+packages = []
+
+[tool.setuptools.dynamic]
+version = {attr="pinandpi.__version__"}

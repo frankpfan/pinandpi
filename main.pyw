@@ -1,0 +1,3 @@
+import pinandpi
+
+pinandpi.main()
