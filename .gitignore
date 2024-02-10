@@ -1,0 +1,9 @@
+**/.*
+!.gitattributes
+!.gitignore
+*.pyproj
+*.pyproj.user
+*.sln
+
+**/__pycache__/
+**/build/*

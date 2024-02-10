@@ -1,0 +1,3 @@
+*.py eol=lf
+*.pyw eol=lf
+*.html linguist-language=py
