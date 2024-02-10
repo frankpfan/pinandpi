@@ -1,3 +1,5 @@
 *.py eol=lf
 *.pyw eol=lf
-*.html linguist-language=py
+*.html linguist-detectable=false
+*.js linguist-detectable=false
+*.css linguist-detectable=false
