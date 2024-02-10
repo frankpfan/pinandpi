@@ -1,0 +1,51 @@
+.. PynAndPi documentation master file, created by
+   sphinx-quickstart on Mon Jan 23 09:27:30 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+====================================
+Welcome to PynAndPi's documentation!
+====================================
+
+这里是 PynAndPi |version| 的文档。
+
+这是一个布丰投针有关的项目。其中，pinandpi 是一个 Python 模块（包）。
+更多用法介绍，参见 :doc:`usage/index`。
+
+模块介绍
+========
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+
+   module/index
+   module/mod-src
+   module/mod-cfg
+   module/mod-img
+
+使用说明
+========
+.. toctree::
+   :maxdepth: 2
+
+   usage/index
+
+关于
+====
+.. toctree::
+   :hidden:
+
+   spec/about
+   spec/update
+
+:doc:`spec/about`
+
+:doc:`更新记录（过去和将来） <spec/update>`
+
+==================
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

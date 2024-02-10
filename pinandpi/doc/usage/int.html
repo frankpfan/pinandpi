@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>布丰投针：证明与算法 &#8212; PynAndPi 1.2.3a0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'usage/int';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="zh-CN">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/icon.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/icon.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/index.html">
+                        Pinandpi 模块总述
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-src.html">
+                        src.run
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-cfg.html">
+                        src.config
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-img.html">
+                        imagine
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        PynAndPi：Python GUI Buffon’s Needle
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/about.html">
+                        关于此文档
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/update.html">
+                        更新进程
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/index.html">
+                        Pinandpi 模块总述
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-src.html">
+                        src.run
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-cfg.html">
+                        src.config
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../module/mod-img.html">
+                        imagine
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        PynAndPi：Python GUI Buffon’s Needle
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/about.html">
+                        关于此文档
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/update.html">
+                        更新进程
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item">
+<h3><a href="../index.html">目录</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../module/index.html">Pinandpi 模块总述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/mod-src.html">src.run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/mod-src.html#module-pinandpi.readhistory">src.readhistory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/mod-cfg.html">src.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../module/mod-img.html">imagine</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">PynAndPi：Python GUI Buffon’s Needle</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spec/about.html">关于此文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec/update.html">更新进程</a></li>
+</ul>
+
+    </div>
+    <div class="sidebar-start-items__item">
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>布丰投针：证明与算法<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<div style="text-align: center;">
+<p><img alt="PynAndPi Icon" src="../_images/f_icon.png" /></p>
+</div>
+<blockquote>
+<div><p>作者：樊圃</p>
+</div></blockquote>
+<div class="admonition- admonition">
+<p class="admonition-title">祝贺！</p>
+<p>恭喜你发现了宝藏！这是在文档树里找不到的页面，只有一个正文超链接通向此处。</p>
+</div>
+<section id="x00">
+<h2>0x00：证明<a class="headerlink" href="#x00" title="此标题的永久链接">#</a></h2>
+<section id="b00">
+<h3>0b00：背景<a class="headerlink" href="#b00" title="此标题的永久链接">#</a></h3>
+<blockquote>
+<div><p>法国数学家布丰（1707-1788）最早设计了投针试验.
+这一实验的步骤是:</p>
+<ol class="arabic simple">
+<li><p>取一张白纸, 在上面画上许多条间距为a的平行线.</p></li>
+<li><p>取一根长度为 <span class="math notranslate nohighlight">\(l(l \le a)\)</span> 的, 随机地向画有平行直线的纸上掷 <span class="math notranslate nohighlight">\(n\)</span>次,
+观察针与直线相交的次数,
+记为 <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>计算针与直线相交的概率.</p></li>
+</ol>
+</div></blockquote>
+<p>“投针问题” 记载于布丰1777年出版的著作中: “在平面上画有一组间距为 <span class="math notranslate nohighlight">\(a\)</span> 的平行线,
+将一根长度为 <span class="math notranslate nohighlight">\(l(l \le a)\)</span> 的针任意掷在这个平面上, 求此针与平行线中任一条相交的概率. “</p>
+<p>这里, 我们取 <span class="math notranslate nohighlight">\(l=1, a=2\)</span>.</p>
+</section>
+<section id="b01">
+<h3>0b01：证明<a class="headerlink" href="#b01" title="此标题的永久链接">#</a></h3>
+<p>我们只考虑一根线的情况.
+<del>（想知道它为什么可以等价与无穷多根平行线, 就自己证明. ）</del>
+针的一端到线的距离 <span class="math notranslate nohighlight">\(y\)</span> 的取值范围是 <span class="math notranslate nohighlight">\((-1, 1\,]\)</span> ,
+针与线的夹角 <span class="math notranslate nohighlight">\(\theta\)</span> 的取值范围是 <span class="math notranslate nohighlight">\([\,0, 2\pi)\)</span> .</p>
+<p>考虑样本空间 <span class="math notranslate nohighlight">\(\mathbf{S}=\{每一根可能的针\}\)</span> , 事件
+<span class="math notranslate nohighlight">\(\mathbf{A}=\{与线相交的针\}\)</span> , 随机变量</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X =
+\begin{cases}
+    1, &amp; \text{相交} \\
+    0, &amp; \text{不相交}
+\end{cases}
+\end{split}\]</div>
+<p>不难看出, 当</p>
+<div class="math notranslate nohighlight">
+\[y - \sin\theta \le 0\]</div>
+<p>时, <span class="math notranslate nohighlight">\(X=1\)</span>.</p>
+<p>因此, 当 <span class="math notranslate nohighlight">\(\theta=t_0\)</span> 时, <span class="math notranslate nohighlight">\(X=1 \iff |y|&lt;|\sin t_0|\)</span>.</p>
+<p>故事件 <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> 即 <span class="math notranslate nohighlight">\({X=1}\)</span> 在 <span class="math notranslate nohighlight">\((y, \theta)\)</span> 坐标系中的图形是
+<span class="math notranslate nohighlight">\(y=\sin \theta\)</span> 与 <span class="math notranslate nohighlight">\(\theta\)</span> 轴围成的图形.</p>
+<p>这个图形的面积是：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    \int_0^{2\pi}\!|\sin x|\mathrm{d}x
+    &amp; = 4\!\int_0^{\pi/2}\!\sin x\mathrm{d}x \\
+    &amp; = 4\left[-\cos x \right]_0^{\pi/2} \\ \\
+    &amp; = 4\times[0-(-1)] \\ \\
+    &amp; = 4
+\end{align}
+\end{split}\]</div>
+<p>而整个样本空间 <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> 的面积为 <span class="math notranslate nohighlight">\(2 \times 2\pi = 4\pi\)</span>,
+所以投中概率为 <span class="math notranslate nohighlight">\(\cfrac{4}{4\pi}=\cfrac{1}{pi}\)</span>, <span class="math notranslate nohighlight">\(X \sim B(1, \cfrac{1}{pi})\)</span>,
+所以当投针次数 <span class="math notranslate nohighlight">\(n\)</span> 变大时, <span class="math notranslate nohighlight">\(n/i\)</span> 不断接近 <span class="math notranslate nohighlight">\(\pi\)</span>.
+（根据棣莫弗－拉普拉斯定理. ）</p>
+</section>
+</section>
+<section id="x01">
+<h2>0x01：算法<a class="headerlink" href="#x01" title="此标题的永久链接">#</a></h2>
+<p>在讲算法时应声明，布丰投针的模拟中是可以用到 <span class="math notranslate nohighlight">\(\pi\)</span> 表示
+<span class="math notranslate nohighlight">\(\theta\)</span> 的，因为现实中的角度并不涉及 <span class="math notranslate nohighlight">\(\pi\)</span>，这里使用是为了
+sin 函数的计算需要。</p>
+<p>事实上，存在这样的随机算法，使得结果 <span class="math notranslate nohighlight">\(\Delta y = \sin\theta\)</span>
+在 -1 与 1 之间且 <span class="math notranslate nohighlight">\(D=\Delta y\)</span> 的概率密度正确，
+但是一般来说这是没有必要的。</p>
+<p>以下算法测试时的 CPU 占用均为约 9%。</p>
+<dl>
+<dt>测试软件：</dt><dd><table class="hlist"><tr><td><ul class="simple">
+<li><p>Python 3.10;</p></li>
+</ul>
+</td><td><ul class="simple">
+<li><p>Windows 10;</p></li>
+</ul>
+</td></tr></table>
+</dd>
+<dt>测试硬件：</dt><dd><p>Intel(R) Core(TM) i5-10400 CPU &#64; 2.90GHz</p>
+</dd>
+</dl>
+<section id="b00-python">
+<h3>0b00：Python 算法<a class="headerlink" href="#b00-python" title="此标题的永久链接">#</a></h3>
+<p>纯 Python 实现的算法，使用
+<a class="reference external" href="https://docs.python.org/3/library/math.html"><code class="docutils literal notranslate"><span class="pre">math</span></code></a>
+模块的 <code class="docutils literal notranslate"><span class="pre">sin()</span></code>, <code class="docutils literal notranslate"><span class="pre">radians()</span></code> 函数和 <code class="docutils literal notranslate"><span class="pre">pi</span></code>。</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> 不需要任何第三方包，原生 Python 即可实现。</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 速度慢，测试时投针 1 亿次需四十余秒。</p></li>
+</ul>
+</section>
+<section id="b01-numpy">
+<h3>0b01：Numpy 算法<a class="headerlink" href="#b01-numpy" title="此标题的永久链接">#</a></h3>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" checked="checked" disabled="disabled" type="checkbox"> 速度快，测试时投针 1 亿次仅需 3.2 秒左右。</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> 需要安装 Numpy；内存占用大，上述速度需要 23MB 内存。
+优化前内存占用甚至是其 10 倍。</p></li>
+</ul>
+<p>用 Python 的第三方包 Numpy 实现的算法。</p>
+<div class="highlight-numpy notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># part of \pinandpi\imagine\algr_np.py</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">th</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">100_0000</span><span class="p">):</span>    <span class="c1">#  1*10^8 needles, 9% of i5 cpu: 3.2s, ~23MB memory</span>
+<span class="linenos"> 7</span>    <span class="n">y_arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="kp">uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,))</span>
+<span class="linenos"> 8</span>    <span class="n">dy_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">sin</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="kp">uniform</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,)))</span>
+<span class="linenos"> 9</span>    <span class="n">b_arr</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_arr</span> <span class="o">-</span> <span class="n">dy_arr</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+<span class="linenos">10</span>    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="kp">sum</span><span class="p">(</span><span class="n">b_arr</span><span class="p">,</span> <span class="kp">dtype</span><span class="o">=</span><span class="s1">&#39;i8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>使用：</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dn</span><span class="p">,</span> <span class="n">di</span> <span class="o">=</span> <span class="n">th</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">+=</span> <span class="n">dn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">i</span> <span class="o">+=</span> <span class="n">di</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="o">/</span><span class="n">i</span><span class="p">)</span>
+<span class="go">{n} {i} {a-number-close-to-pi}</span>
+</pre></div>
+</div>
+<p>作者曾经（没事闲的）使用此算法进行几小时的实验，总计 <em>8192 亿</em>
+根针，投中 2607,5985,1100 根，计算结果与 <span class="math notranslate nohighlight">\(\pi\)</span> 真值相差
+0.00015%（比真值小），而数学上预期误差应在约 0.00011% 内。推断为浮点误差，不可避免。</p>
+<p>未来，我打算将 Numpy 算法加入主程序。</p>
+</section>
+</section>
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#x00">
+   0x00：证明
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b00">
+     0b00：背景
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b01">
+     0b01：证明
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#x01">
+   0x01：算法
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b00-python">
+     0b00：Python 算法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b01-numpy">
+     0b01：Numpy 算法
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="../_sources/usage/int.md.txt">
+        <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2023, Fan Pu.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

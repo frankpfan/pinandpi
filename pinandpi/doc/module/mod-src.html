@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>src.run &#8212; PynAndPi 1.2.3a0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'module/mod-src';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="src.config" href="mod-cfg.html" />
+    <link rel="prev" title="Pinandpi 模块总述" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="zh-CN">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <img src="../_static/icon.png" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/icon.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Pinandpi 模块总述
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        src.run
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="mod-cfg.html">
+                        src.config
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="mod-img.html">
+                        imagine
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../usage/index.html">
+                        PynAndPi：Python GUI Buffon’s Needle
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/about.html">
+                        关于此文档
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/update.html">
+                        更新进程
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Pinandpi 模块总述
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        src.run
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="mod-cfg.html">
+                        src.config
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="mod-img.html">
+                        imagine
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../usage/index.html">
+                        PynAndPi：Python GUI Buffon’s Needle
+                      </a>
+                    </li>
+                
+            <div class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    More
+                </button>
+                <div class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/about.html">
+                        关于此文档
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../spec/update.html">
+                        更新进程
+                      </a>
+                    </li>
+                
+                </div>
+            </div>
+            
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item">
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+    <div class="sidebar-start-items__item">
+<h3><a href="../index.html">目录</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Pinandpi 模块总述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">src.run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-pinandpi.readhistory">src.readhistory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mod-cfg.html">src.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mod-img.html">imagine</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">PynAndPi：Python GUI Buffon’s Needle</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../spec/about.html">关于此文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../spec/update.html">更新进程</a></li>
+</ul>
+
+    </div>
+    <div class="sidebar-start-items__item">
+  <div>
+    <h4>上一主题</h4>
+    <p class="topless"><a href="index.html"
+                          title="上一章">Pinandpi 模块总述</a></p>
+  </div>
+  <div>
+    <h4>下一主题</h4>
+    <p class="topless"><a href="mod-cfg.html"
+                          title="下一章">src.config</a></p>
+  </div>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <section id="module-pinandpi.run">
+<span id="src-run"></span><span id="runmodule"></span><h1>src.run<a class="headerlink" href="#module-pinandpi.run" title="此标题的永久链接">#</a></h1>
+<p>布丰投针 Python GUI 编程模拟</p>
+<p>提供一个图形化的布丰投针界面.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pinandpi.run.Home">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinandpi.run.</span></span><span class="sig-name descname"><span class="pre">Home</span></span><a class="headerlink" href="#pinandpi.run.Home" title="永久链接至目标">#</a></dt>
+<dd><p>首页界面.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Home.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Home.__init__" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Home.topdesc">
+<span class="sig-name descname"><span class="pre">topdesc</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Home.topdesc" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Home.topinterp">
+<span class="sig-name descname"><span class="pre">topinterp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Home.topinterp" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Home.topinfo">
+<span class="sig-name descname"><span class="pre">topinfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Home.topinfo" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Home.show">
+<span class="sig-name descname"><span class="pre">show</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Home.show" title="永久链接至目标">#</a></dt>
+<dd><p>主程序: 显示界面.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinandpi.run.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinandpi.run.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">home</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game" title="永久链接至目标">#</a></dt>
+<dd><p>投针界面.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">home</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.__init__" title="永久链接至目标">#</a></dt>
+<dd><p>初始化 <a class="reference internal" href="#pinandpi.run.Game" title="pinandpi.run.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>home</strong> (<em>Home</em>) – 使用 <span class="guilabel">self</span> 的 <a class="reference internal" href="#pinandpi.run.Home" title="pinandpi.run.Home"><code class="xref py py-class docutils literal notranslate"><span class="pre">Home</span></code></a> 对象.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.destroy_home">
+<span class="sig-name descname"><span class="pre">destroy_home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.destroy_home" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.back2home">
+<span class="sig-name descname"><span class="pre">back2home</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.back2home" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.throw">
+<span class="sig-name descname"><span class="pre">throw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.throw" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.randthrow">
+<span class="sig-name descname"><span class="pre">randthrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.randthrow" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.thrdthrow">
+<span class="sig-name descname"><span class="pre">thrdthrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.thrdthrow" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.update_rbuttons_states">
+<span class="sig-name descname"><span class="pre">update_rbuttons_states</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.update_rbuttons_states" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.title_process">
+<span class="sig-name descname"><span class="pre">title_process</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.title_process" title="永久链接至目标">#</a></dt>
+<dd><p>窗口标题进度条.</p>
+<p>投针时在标题中添加 ‘ #’, 至 8 个重新开始.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.start_b_cmd">
+<span class="sig-name descname"><span class="pre">start_b_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.start_b_cmd" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.mode_b_cmd">
+<span class="sig-name descname"><span class="pre">mode_b_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.mode_b_cmd" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.draw_b_cmd">
+<span class="sig-name descname"><span class="pre">draw_b_cmd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.draw_b_cmd" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.restart">
+<span class="sig-name descname"><span class="pre">restart</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.restart" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.placewidgets">
+<span class="sig-name descname"><span class="pre">placewidgets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.placewidgets" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.update_pi">
+<span class="sig-name descname"><span class="pre">update_pi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.update_pi" title="永久链接至目标">#</a></dt>
+<dd><p>更新画布下方显示的 <span class="math notranslate nohighlight">\(\pi\)</span> 值.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>int</em>) – 投中次数.</p></li>
+<li><p><strong>b</strong> (<em>int</em>) – 投针次数.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.leave">
+<span class="sig-name descname"><span class="pre">leave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.leave" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.show_game">
+<span class="sig-name descname"><span class="pre">show_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.show_game" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Game.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Game.start" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pinandpi.run.Record">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pinandpi.run.</span></span><span class="sig-name descname"><span class="pre">Record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record" title="永久链接至目标">#</a></dt>
+<dd><p>历史记录模块操作.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Record.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record.__init__" title="永久链接至目标">#</a></dt>
+<dd><p>初始化 <a class="reference internal" href="#pinandpi.run.Record" title="pinandpi.run.Record"><code class="xref py py-class docutils literal notranslate"><span class="pre">Record</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>game</strong> (<em>Game</em>) – 使用 <span class="guilabel">self</span> 的 <a class="reference internal" href="#pinandpi.run.Game" title="pinandpi.run.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a> 对象.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Record.leave">
+<span class="sig-name descname"><span class="pre">leave</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record.leave" title="永久链接至目标">#</a></dt>
+<dd><p>离开历史记录界面.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Record.search_win">
+<span class="sig-name descname"><span class="pre">search_win</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record.search_win" title="永久链接至目标">#</a></dt>
+<dd><p>读取记录.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Record.mpl_part">
+<span class="sig-name descname"><span class="pre">mpl_part</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record.mpl_part" title="永久链接至目标">#</a></dt>
+<dd><p>历史分析界面.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinandpi.run.Record.showing">
+<span class="sig-name descname"><span class="pre">showing</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#pinandpi.run.Record.showing" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pinandpi.run.Record.lastsavetime">
+<span class="sig-name descname"><span class="pre">lastsavetime</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#pinandpi.run.Record.lastsavetime" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pinandpi.run.Record.record_win">
+<span class="sig-name descname"><span class="pre">record_win</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.Record.record_win" title="永久链接至目标">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pinandpi.run.iofunc">
+<span class="sig-prename descclassname"><span class="pre">pinandpi.run.</span></span><span class="sig-name descname"><span class="pre">iofunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.run.iofunc" title="永久链接至目标">#</a></dt>
+<dd><p>为文件操作提供的安全性装饰器.</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>func</strong> (<em>Callable</em>) – 要调用的函数.</p>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>inner(*args, **kw)</strong> (<em>function</em>) – 尝试执行 <span class="guilabel">func(*args, **kw)</span>, 若捕获到 <code class="xref py py-exc docutils literal notranslate"><span class="pre">PermissionError</span></code>
+则提示关闭文件.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-pinandpi.readhistory">
+<span id="src-readhistory"></span><span id="readhistory"></span><h1>src.readhistory<a class="headerlink" href="#module-pinandpi.readhistory" title="此标题的永久链接">#</a></h1>
+<p>布丰投针 - 读取记录</p>
+<p>读取历史记录并返回. 调用 <a class="reference internal" href="#pinandpi.readhistory.get" title="pinandpi.readhistory.get"><code class="xref py py-func docutils literal notranslate"><span class="pre">get()</span></code></a> 函数.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pinandpi.readhistory.get">
+<span class="sig-prename descclassname"><span class="pre">pinandpi.readhistory.</span></span><span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pinandpi.readhistory.get" title="永久链接至目标">#</a></dt>
+<dd><p>以 <code class="code docutils literal notranslate"><span class="pre">np.ndarray[typing.Any,</span> <span class="pre">np.dtype[np.int64]]</span></code>
+类型返回所有记录.</p>
+<dl class="field-list simple">
+<dt class="field-odd">返回<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>np.ndarray</em> – 包含记录的数组.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">备注</p>
+<p>返回数组具有 shape <code class="code docutils literal notranslate"><span class="pre">(-1,</span> <span class="pre">3)</span></code>, 数据类型是 <span class="guilabel">np.uint64</span>.</p>
+</div>
+</dd></dl>
+
+</section>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="index.html" title="上一页 页">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">上一页</p>
+          <p class="prev-next-title">Pinandpi 模块总述</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="mod-cfg.html" title="下一页 页">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">下一页</p>
+      <p class="prev-next-title">src.config</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   src.run
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pinandpi.run.Home">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Home
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Home.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Home.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Home.topdesc">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Home.topdesc()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Home.topinterp">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Home.topinterp()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Home.topinfo">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Home.topinfo()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Home.show">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Home.show()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pinandpi.run.Game">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Game
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.destroy_home">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.destroy_home()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.back2home">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.back2home()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.throw">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.throw()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.randthrow">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.randthrow()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.thrdthrow">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.thrdthrow()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.update_rbuttons_states">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.update_rbuttons_states()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.title_process">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.title_process()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.start_b_cmd">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.start_b_cmd()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.mode_b_cmd">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.mode_b_cmd()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.draw_b_cmd">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.draw_b_cmd()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.restart">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.restart()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.placewidgets">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.placewidgets()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.update_pi">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.update_pi()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.leave">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.leave()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.show_game">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.show_game()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Game.start">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Game.start()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pinandpi.run.Record">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Record
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.leave">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.leave()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.search_win">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.search_win()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.mpl_part">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.mpl_part()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.showing">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.showing
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.lastsavetime">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.lastsavetime
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pinandpi.run.Record.record_win">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         Record.record_win()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pinandpi.run.iofunc">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       iofunc()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-pinandpi.readhistory">
+   src.readhistory
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pinandpi.readhistory.get">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       get()
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="../_sources/module/mod-src.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> 显示源代码
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2023, Fan Pu.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>
